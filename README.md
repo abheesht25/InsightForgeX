@@ -22,6 +22,6 @@ We welcome contributions from the community to enhance InsightForgeX. Whether yo
 
 ## License:
 
-InsightForgeX is licensed under the [MIT License](#), granting you the freedom to use, modify, and distribute the code. See the [LICENSE](LICENSE) file for details.
+InsightForgeX is licensed under the [Apache-2.0 license](#), granting you the freedom to use, modify, and distribute the code. See the [LICENSE](LICENSE) file for details.
 
 Explore, Analyze, Forge Insights - With InsightForgeX.
