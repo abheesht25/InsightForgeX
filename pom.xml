@@ -14,7 +14,7 @@
                 <configuration>
                     <xcodeProject>InsightforgeX.xcodeproj</xcodeProject>
                     <xcodeTarget>InsightforgeX</xcodeTarget>
-                    <xcodeConfiguration>Debug</xcodeConfiguration>
+                    <xcodeConfiguration>Release</xcodeConfiguration>
                     <xcodeSdk>iphoneos</xcodeSdk>
                 </configuration>
                 <extensions>true</extensions>
