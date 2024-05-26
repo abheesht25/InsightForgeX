@@ -43,6 +43,7 @@
 		E8264B462B98C2C500DA8B45 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E8264B452B98C2C500DA8B45 /* FirebaseStorage */; };
 		E8264B482B98C2C500DA8B45 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E8264B472B98C2C500DA8B45 /* FirebaseStorageCombine-Community */; };
 		E8264B4C2B98C36D00DA8B45 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264B4B2B98C36D00DA8B45 /* AuthViewModel.swift */; };
+		E87BD9A82BFF544400D96EC7 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87BD9A72BFF544400D96EC7 /* PieSlice.swift */; };
 		E87C76682B94427D00BDD3C9 /* InsightforgeXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87C76672B94427D00BDD3C9 /* InsightforgeXApp.swift */; };
 		E87C766A2B94427D00BDD3C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87C76692B94427D00BDD3C9 /* ContentView.swift */; };
 		E87C766C2B94428000BDD3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87C766B2B94428000BDD3C9 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		E8264B0E2B98B0CF00DA8B45 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8264B102B98BF4F00DA8B45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E8264B4B2B98C36D00DA8B45 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E87BD9A72BFF544400D96EC7 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
 		E87C76642B94427D00BDD3C9 /* InsightforgeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightforgeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87C76672B94427D00BDD3C9 /* InsightforgeXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeXApp.swift; sourceTree = "<group>"; };
 		E87C76692B94427D00BDD3C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				E87C769B2B9603B700BDD3C9 /* ProfileView.swift */,
+				E87BD9A72BFF544400D96EC7 /* PieSlice.swift */,
 			);
 			path = "Profile ";
 			sourceTree = "<group>";
@@ -326,7 +329,7 @@
 			mainGroup = E87C765B2B94427D00BDD3C9;
 			packageReferences = (
 				E8264B122B98C2C400DA8B45 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms.git" */,
+				E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 				E8218EAA2BA380BB00AEADD1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = E87C76652B94427D00BDD3C9 /* Products */;
@@ -368,6 +371,7 @@
 				E8264B4C2B98C36D00DA8B45 /* AuthViewModel.swift in Sources */,
 				E87C76742B94428000BDD3C9 /* InsightforgeX.xcdatamodeld in Sources */,
 				E80EF8332B9F07B50091850E /* MyLoggedInView.swift in Sources */,
+				E87BD9A82BFF544400D96EC7 /* PieSlice.swift in Sources */,
 				E8264B0F2B98B0CF00DA8B45 /* User.swift in Sources */,
 				E87C769E2B978BAB00BDD3C9 /* SettingRowView.swift in Sources */,
 			);
@@ -409,6 +413,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -472,6 +478,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -569,7 +577,7 @@
 				E87C76762B94428000BDD3C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E87C76772B94428000BDD3C9 /* Build configuration list for PBXNativeTarget "InsightforgeX" */ = {
 			isa = XCConfigurationList;
@@ -578,12 +586,12 @@
 				E87C76792B94428000BDD3C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms.git" */ = {
+		E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
 			requirement = {
@@ -612,7 +620,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E80EF8302B9E075B0091850E /* AsyncAlgorithms */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms.git" */;
+			package = E80EF82F2B9E075B0091850E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
 			productName = AsyncAlgorithms;
 		};
 		E8218EAB2BA380BB00AEADD1 /* GoogleSignIn */ = {

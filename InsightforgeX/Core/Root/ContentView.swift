@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewmodel: AuthViewModel
     var body: some View{
-        if viewmodel.userSession != nil{
+        if $viewmodel.userSession != nil{
             ProfileView()
         } else{
         LoginView()

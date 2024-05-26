@@ -10,7 +10,7 @@ import Firebase
 import FirebaseCore
 import GoogleSignIn
 import GoogleSignInSwift
-
+import AuthenticationServices
 
 struct GoogleSignInResultModel{
     let idToken : String
@@ -22,11 +22,11 @@ final class AuthenticationViewModel: ObservableObject{
     
     func signInGoogle() async throws{
     
-        guard let topVC = Utilities.shared.topViewController()
-         
-        else{
-            throw URLError(.cannotFindHost)
-        }
+        let topVC = await MainActor.run { Utilities.shared.topViewController() }
+                
+                guard let topVC = topVC else {
+                    throw URLError(.cannotFindHost)
+                }
         let gidsigninresult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
         
         guard let idToken = gidsigninresult.user.idToken?.tokenString else{
@@ -35,7 +35,7 @@ final class AuthenticationViewModel: ObservableObject{
         let accessToken = gidsigninresult.user.accessToken.tokenString
         
         let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
-        try await AuthViewModel.shared.signinwithgoogle(String)
+        //try await AuthViewModel.shared.signinwithgoogle(String)
         
     }
 }
@@ -46,6 +46,8 @@ struct LoginView: View {
     @State private var Password = ""
     @EnvironmentObject var viewmodel: AuthViewModel
     @StateObject private var viewModel = AuthenticationViewModel()
+    //for apple login
+    @StateObject var logindata = AuthViewModel()
     
     var body: some View {
         NavigationStack{
@@ -97,32 +99,32 @@ struct LoginView: View {
                 
                 
                 
-                
-                //google sign in
-//                                Button("google signin")
-//                                {
-//                                    Task{
-//                                        viewmodel.signinwithgoogle()
-//                                    }
-//                                }
-                 
-//                NavigationLink{
-//                    RegistrationView()
-//                        .environmentObject(viewmodel)
-//                        .navigationBarBackButtonHidden(true)
-//                }
-//            label:{
-//                HStack(spacing: 1){
-//                    Text("Google Signin ")
-//                }
-//                .onTapGesture {
-//                        // Initiating Google Sign-In process
-//                        GIDSignIn.sharedInstance()?.signIn()
-//            }
-                
-                GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .wide, state: .normal)) {
+                SignInWithAppleButton{ (request) in
                     
+                    //requesting parameters from apple login..
+                    //logindata.nonce = randomNonceString(length: 30)
+                    request.requestedScopes = [.email,.fullName]
+                    //request.nonce = sha256(logindata.nonce)
+                } onCompletion: { (result) in
+                    
+                    //getting error or success...
+                    
+                    switch result {
+                    case .success(let user):
+                        print("Success !!")
+                        //do login with Forebase
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
+                .signInWithAppleButtonStyle(.white)
+                .frame(height: 55)
+                .clipShape(Capsule())
+                .padding(.horizontal,100)
+                .offset(y: 70)
+            
+                
+                
                 
                     Spacer()
                 
