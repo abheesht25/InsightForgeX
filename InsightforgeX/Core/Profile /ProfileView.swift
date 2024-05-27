@@ -149,6 +149,11 @@ struct ProfileView: View {
                 
             }
         }
+        else {
+            ProgressView {
+                Text("Fething user...")
+            }
+        }
     }
     private func handleFileImport(result: Result<[URL], Error>) {
             switch result {

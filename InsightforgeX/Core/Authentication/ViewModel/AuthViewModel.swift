@@ -31,9 +31,8 @@ class AuthViewModel: ObservableObject{
     var provider = OAuthProvider(providerID: "oidc.insightforgex")
     
     init(){
-        self.userSession=Auth.auth().currentUser
-        
-        Task{
+        self.userSession = Auth.auth().currentUser
+        Task {
             await fetchuser()
         }
     }
@@ -175,7 +174,9 @@ class AuthViewModel: ObservableObject{
     }
     
     func fetchuser() async {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         
         do {
             let documentSnapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
@@ -201,8 +202,6 @@ extension AuthViewModel {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
             await fetchuser()
-            
-            
         }
         catch{
             print("DEBUG: failed to log with the error \(error.localizedDescription)")

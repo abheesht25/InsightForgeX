@@ -21,12 +21,12 @@ struct GoogleSignInResultModel{
 final class AuthenticationViewModel: ObservableObject{
     
     func signInGoogle() async throws{
-    
+        
         let topVC = await MainActor.run { Utilities.shared.topViewController() }
-                
-                guard let topVC = topVC else {
-                    throw URLError(.cannotFindHost)
-                }
+        
+        guard let topVC = topVC else {
+            throw URLError(.cannotFindHost)
+        }
         let gidsigninresult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
         
         guard let idToken = gidsigninresult.user.idToken?.tokenString else{
@@ -122,11 +122,11 @@ struct LoginView: View {
                 .clipShape(Capsule())
                 .padding(.horizontal,100)
                 .offset(y: 70)
-            
                 
                 
                 
-                    Spacer()
+                
+                Spacer()
                 
                 //signup button
                 NavigationLink{
@@ -152,14 +152,14 @@ struct LoginView: View {
         }
     }
 }
-    extension LoginView: AuthenticationFormProtocol{
-        var formisvalid: Bool{
-            return !Email.isEmpty
-            && Email.contains("@")
-            && !Password.isEmpty
-            && Password.count > 6
-        }
+extension LoginView: AuthenticationFormProtocol{
+    var formisvalid: Bool{
+        return !Email.isEmpty
+        && Email.contains("@")
+        && !Password.isEmpty
+        && Password.count > 6
     }
+}
 
 
 struct LoginView_preview: PreviewProvider{
