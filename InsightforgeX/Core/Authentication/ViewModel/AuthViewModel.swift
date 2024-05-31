@@ -42,7 +42,7 @@ class AuthViewModel: ObservableObject{
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-      let handle =  GIDSignIn.sharedInstance.handle(url)
+        let handle =  GIDSignIn.sharedInstance.handle(url)
         if handle{
             print("handle hai ---->")
             print(handle)
@@ -54,36 +54,45 @@ class AuthViewModel: ObservableObject{
     }
     
     func sha256(_ input: String) -> String {
-     let inputData = Data(input.utf8)
-     let hashedData = SHA256.hash(data: inputData)
-     let hashString = hashedData.compactMap {
-      return  String(format: "%02x", $0)
-     }.joined()
-
-     return hashString
-   }
-   
-   
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return  String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
+    }
+    
+    
     func randomNonceString(length: Int = 32) -> String {
-     precondition(length > 0)
-     var randomBytes = [UInt8](repeating: 0, count: length)
-     let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
-     if errorCode != errSecSuccess {
-       fatalError(
-         "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
-       )
-     }
-
-     let charset: [Character] =
-       Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-
-     let nonce = randomBytes.map { byte in
-       // Pick a random character from the set, wrapping around if needed.
-       charset[Int(byte) % charset.count]
-     }
-
-     return String(nonce)
-   }
+        precondition(length > 0)
+        let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0..<16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        
+        return result
+    }
     
     
     func signinwithgoogle(){
@@ -107,7 +116,7 @@ class AuthViewModel: ObservableObject{
             let credentials = GoogleAuthProvider.credential(withIDToken: idtoken.tokenString, accessToken: accesstoken.tokenString)
             
             Auth.auth().signIn(with: credentials){ res, error in
-            
+                
                 if let error = error{
                     print(error.localizedDescription)
                     return
@@ -129,7 +138,7 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-
+    
     
     
     func tokenSignInExample(idToken: String) {
@@ -140,13 +149,13 @@ class AuthViewModel: ObservableObject{
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         let task = URLSession.shared.uploadTask(with: request, from: authData) { data, response, error in
             // Handle response from your backend.
         }
         task.resume()
     }
-  
+    
     func signout(){
         do{
             try Auth.auth().signOut()
@@ -222,20 +231,45 @@ extension AuthViewModel {
             print("DEBUG: failed to create user with error \(error.localizedDescription)")
         }
     }
- 
+    
     
 }
 //MARK: Sign in with SSO Function
 extension AuthViewModel {
-
     
-    func signinwithGoogle(token : GoogleSignInResultModel) async throws ->Void{
-//        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
-//        return try await signIn(credential: credentials)
-//
-//        func signIn(credential: AuthCredential) async throws ->Void{
-//            let credential = try await Auth.auth().signIn(with: credential)
-//            self.userSession = result.user
-//            await fetchuser()    }
+    
+    func handleAppleSignIn(result: Result<ASAuthorization, Error>) {
+        switch result {
+        case .success(let authResults):
+            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
+            Task {
+                do {
+                    try await signInWithApple(credential: credential)
+                } catch {
+                    print("Error signing in with Apple: \(error.localizedDescription)")
+                }
+            }
+        case .failure(let error):
+            print("Apple Sign-In failed: \(error.localizedDescription)")
+        }
     }
+    
+    private func signInWithApple(credential: ASAuthorizationAppleIDCredential) async throws {
+        guard let appleIDToken = credential.identityToken else {
+            throw NSError(domain: "SignInWithAppleError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to fetch identity token"])
+        }
+        
+        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+            throw NSError(domain: "SignInWithAppleError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to serialize token string from data"])
+        }
+        
+        let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+        let result = try await Auth.auth().signIn(with: firebaseCredential)
+        self.userSession = result.user
+        await fetchuser()
+    }
+    
+    
+    
+    
 }

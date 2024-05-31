@@ -55,7 +55,27 @@
 		E87C76892B94D62700BDD3C9 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87C76882B94D62700BDD3C9 /* RegistrationView.swift */; };
 		E87C769C2B9603B700BDD3C9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87C769B2B9603B700BDD3C9 /* ProfileView.swift */; };
 		E87C769E2B978BAB00BDD3C9 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87C769D2B978BAB00BDD3C9 /* SettingRowView.swift */; };
+		E88491632C09D63C00B8027F /* InsightforgeXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88491622C09D63C00B8027F /* InsightforgeXTests.swift */; };
+		E88491702C09EA3900B8027F /* InsightforgeXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884916F2C09EA3900B8027F /* InsightforgeXUITests.swift */; };
+		E88491722C09EA3900B8027F /* InsightforgeXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88491712C09EA3900B8027F /* InsightforgeXUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E88491642C09D63C00B8027F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E87C765C2B94427D00BDD3C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E87C76632B94427D00BDD3C9;
+			remoteInfo = InsightforgeX;
+		};
+		E88491732C09EA3900B8027F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E87C765C2B94427D00BDD3C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E87C76632B94427D00BDD3C9;
+			remoteInfo = InsightforgeX;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E80DAD672BB08FDA00445D9F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -78,6 +98,13 @@
 		E87C76882B94D62700BDD3C9 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E87C769B2B9603B700BDD3C9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E87C769D2B978BAB00BDD3C9 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
+		E884915A2C08A8B600B8027F /* InsightforgeX.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = InsightforgeX.xctestplan; sourceTree = "<group>"; };
+		E884915B2C09B84400B8027F /* InsightforgeX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InsightforgeX.entitlements; sourceTree = "<group>"; };
+		E88491602C09D63C00B8027F /* InsightforgeXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsightforgeXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E88491622C09D63C00B8027F /* InsightforgeXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeXTests.swift; sourceTree = "<group>"; };
+		E884916D2C09EA3900B8027F /* InsightforgeXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsightforgeXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E884916F2C09EA3900B8027F /* InsightforgeXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeXUITests.swift; sourceTree = "<group>"; };
+		E88491712C09EA3900B8027F /* InsightforgeXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightforgeXUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +145,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E884915D2C09D63C00B8027F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E884916A2C09EA3900B8027F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -150,7 +191,10 @@
 		E87C765B2B94427D00BDD3C9 = {
 			isa = PBXGroup;
 			children = (
+				E884915A2C08A8B600B8027F /* InsightforgeX.xctestplan */,
 				E87C76662B94427D00BDD3C9 /* InsightforgeX */,
+				E88491612C09D63C00B8027F /* InsightforgeXTests */,
+				E884916E2C09EA3900B8027F /* InsightforgeXUITests */,
 				E87C76652B94427D00BDD3C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				E87C76642B94427D00BDD3C9 /* InsightforgeX.app */,
+				E88491602C09D63C00B8027F /* InsightforgeXTests.xctest */,
+				E884916D2C09EA3900B8027F /* InsightforgeXUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +212,7 @@
 		E87C76662B94427D00BDD3C9 /* InsightforgeX */ = {
 			isa = PBXGroup;
 			children = (
+				E884915B2C09B84400B8027F /* InsightforgeX.entitlements */,
 				E8218EA92BA2AE0E00AEADD1 /* Info.plist */,
 				E87C76802B9442B800BDD3C9 /* App */,
 				E87C767F2B9442B300BDD3C9 /* Component */,
@@ -251,6 +298,23 @@
 			path = "Profile ";
 			sourceTree = "<group>";
 		};
+		E88491612C09D63C00B8027F /* InsightforgeXTests */ = {
+			isa = PBXGroup;
+			children = (
+				E88491622C09D63C00B8027F /* InsightforgeXTests.swift */,
+			);
+			path = InsightforgeXTests;
+			sourceTree = "<group>";
+		};
+		E884916E2C09EA3900B8027F /* InsightforgeXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E884916F2C09EA3900B8027F /* InsightforgeXUITests.swift */,
+				E88491712C09EA3900B8027F /* InsightforgeXUITestsLaunchTests.swift */,
+			);
+			path = InsightforgeXUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,6 +367,42 @@
 			productReference = E87C76642B94427D00BDD3C9 /* InsightforgeX.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E884915F2C09D63C00B8027F /* InsightforgeXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E88491662C09D63C00B8027F /* Build configuration list for PBXNativeTarget "InsightforgeXTests" */;
+			buildPhases = (
+				E884915C2C09D63C00B8027F /* Sources */,
+				E884915D2C09D63C00B8027F /* Frameworks */,
+				E884915E2C09D63C00B8027F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E88491652C09D63C00B8027F /* PBXTargetDependency */,
+			);
+			name = InsightforgeXTests;
+			productName = InsightforgeXTests;
+			productReference = E88491602C09D63C00B8027F /* InsightforgeXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E884916C2C09EA3900B8027F /* InsightforgeXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E88491752C09EA3A00B8027F /* Build configuration list for PBXNativeTarget "InsightforgeXUITests" */;
+			buildPhases = (
+				E88491692C09EA3900B8027F /* Sources */,
+				E884916A2C09EA3900B8027F /* Frameworks */,
+				E884916B2C09EA3900B8027F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E88491742C09EA3900B8027F /* PBXTargetDependency */,
+			);
+			name = InsightforgeXUITests;
+			productName = InsightforgeXUITests;
+			productReference = E884916D2C09EA3900B8027F /* InsightforgeXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -310,11 +410,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					E87C76632B94427D00BDD3C9 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					E884915F2C09D63C00B8027F = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = E87C76632B94427D00BDD3C9;
+					};
+					E884916C2C09EA3900B8027F = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = E87C76632B94427D00BDD3C9;
 					};
 				};
 			};
@@ -337,6 +445,8 @@
 			projectRoot = "";
 			targets = (
 				E87C76632B94427D00BDD3C9 /* InsightforgeX */,
+				E884915F2C09D63C00B8027F /* InsightforgeXTests */,
+				E884916C2C09EA3900B8027F /* InsightforgeXUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,6 +459,20 @@
 				E87C766F2B94428000BDD3C9 /* Preview Assets.xcassets in Resources */,
 				E87C766C2B94428000BDD3C9 /* Assets.xcassets in Resources */,
 				E8264B112B98BF4F00DA8B45 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E884915E2C09D63C00B8027F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E884916B2C09EA3900B8027F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +501,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E884915C2C09D63C00B8027F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E88491632C09D63C00B8027F /* InsightforgeXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E88491692C09EA3900B8027F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E88491722C09EA3900B8027F /* InsightforgeXUITestsLaunchTests.swift in Sources */,
+				E88491702C09EA3900B8027F /* InsightforgeXUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E88491652C09D63C00B8027F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E87C76632B94427D00BDD3C9 /* InsightforgeX */;
+			targetProxy = E88491642C09D63C00B8027F /* PBXContainerItemProxy */;
+		};
+		E88491742C09EA3900B8027F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E87C76632B94427D00BDD3C9 /* InsightforgeX */;
+			targetProxy = E88491732C09EA3900B8027F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E87C76752B94428000BDD3C9 /* Debug */ = {
@@ -508,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InsightforgeX/InsightforgeX.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -540,6 +695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InsightforgeX/InsightforgeX.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -567,6 +723,80 @@
 			};
 			name = Release;
 		};
+		E88491672C09D63C00B8027F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8QB58T8ZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sap.InsightforgeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InsightforgeX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InsightforgeX";
+			};
+			name = Debug;
+		};
+		E88491682C09D63C00B8027F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8QB58T8ZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sap.InsightforgeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InsightforgeX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InsightforgeX";
+			};
+			name = Release;
+		};
+		E88491762C09EA3A00B8027F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8QB58T8ZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sap.InsightforgeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InsightforgeX;
+			};
+			name = Debug;
+		};
+		E88491772C09EA3A00B8027F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8QB58T8ZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sap.InsightforgeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InsightforgeX;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -584,6 +814,24 @@
 			buildConfigurations = (
 				E87C76782B94428000BDD3C9 /* Debug */,
 				E87C76792B94428000BDD3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E88491662C09D63C00B8027F /* Build configuration list for PBXNativeTarget "InsightforgeXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E88491672C09D63C00B8027F /* Debug */,
+				E88491682C09D63C00B8027F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E88491752C09EA3A00B8027F /* Build configuration list for PBXNativeTarget "InsightforgeXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E88491762C09EA3A00B8027F /* Debug */,
+				E88491772C09EA3A00B8027F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

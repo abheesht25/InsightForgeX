@@ -20,24 +20,6 @@ struct GoogleSignInResultModel{
 @MainActor
 final class AuthenticationViewModel: ObservableObject{
     
-    func signInGoogle() async throws{
-        
-        let topVC = await MainActor.run { Utilities.shared.topViewController() }
-        
-        guard let topVC = topVC else {
-            throw URLError(.cannotFindHost)
-        }
-        let gidsigninresult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
-        
-        guard let idToken = gidsigninresult.user.idToken?.tokenString else{
-            throw URLError(.badServerResponse)
-        }
-        let accessToken = gidsigninresult.user.accessToken.tokenString
-        
-        let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
-        //try await AuthViewModel.shared.signinwithgoogle(String)
-        
-    }
 }
 
 
@@ -48,7 +30,7 @@ struct LoginView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
     //for apple login
     @StateObject var logindata = AuthViewModel()
-    
+    @State private var isSignedIn = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -99,28 +81,19 @@ struct LoginView: View {
                 
                 
                 
-                SignInWithAppleButton{ (request) in
-                    
-                    //requesting parameters from apple login..
-                    //logindata.nonce = randomNonceString(length: 30)
-                    request.requestedScopes = [.email,.fullName]
-                    //request.nonce = sha256(logindata.nonce)
-                } onCompletion: { (result) in
-                    
-                    //getting error or success...
-                    
-                    switch result {
-                    case .success(let user):
-                        print("Success !!")
-                        //do login with Forebase
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                }
+                
+                
+                SignInWithAppleButton(.signIn, onRequest: { request in
+                    request.requestedScopes = [.fullName, .email]
+                    logindata.nonce = logindata.randomNonceString()
+                    request.nonce = logindata.sha256(logindata.nonce)
+                }, onCompletion: { result in
+                    logindata.handleAppleSignIn(result: result)
+                })
                 .signInWithAppleButtonStyle(.white)
                 .frame(height: 55)
                 .clipShape(Capsule())
-                .padding(.horizontal,100)
+                .padding(.horizontal, 100)
                 .offset(y: 70)
                 
                 
@@ -144,7 +117,17 @@ struct LoginView: View {
                 .font(.system(size: 15))
             }
                 
-                
+                VStack {
+                           // ... existing code ...
+                           
+                           // Detect state change to navigate to Profile view
+                           NavigationLink(destination: ProfileView(), isActive: $isSignedIn) {
+                               EmptyView()
+                           }
+                       }
+                       .onChange(of: viewmodel.userSession) { _ in
+                           isSignedIn = viewmodel.userSession != nil
+                       }
                 
                 
                 
